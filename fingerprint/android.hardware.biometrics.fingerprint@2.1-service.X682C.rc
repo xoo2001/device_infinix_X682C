@@ -39,7 +39,7 @@ on post-fs-data
 #-----------------------  for optical sensor begin    ---------------------
     mkdir /data/vendor/fingerprint 0770 system system
     mkdir /mnt/vendor/persist/fingerprint 0770 system system
-    chown system system /sys/kernel/oppo_display/hbm
+    chown system system /sys/kernel/infinix_display/hbm
 #-----------------------   for optical sensor end     ---------------------
 #add for egis fp save images
     mkdir /data/vendor/egis 0770 system system
@@ -52,7 +52,7 @@ service fps_hal.X682C /system/bin/hw/android.hardware.biometrics.fingerprint@2.1
     user system
     group system input uhid
 
-service oppo_fingerprints_sh /vendor/bin/sh /vendor/bin/init.oppo.fingerprints.sh
+service infinix_fingerprints_sh /vendor/bin/sh /vendor/bin/init.infinix.fingerprints.sh
     class main
     user root
     oneshot

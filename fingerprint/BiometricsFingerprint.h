@@ -25,7 +25,7 @@
 #include <hidl/Status.h>
 #include <android/hardware/biometrics/fingerprint/2.1/IBiometricsFingerprint.h>
 #include <android/hardware/biometrics/fingerprint/2.1/types.h>
-#include <vendor/oppo/hardware/biometrics/fingerprint/2.1/IBiometricsFingerprint.h>
+#include <vendor/infinix/hardware/biometrics/fingerprint/2.1/IBiometricsFingerprint.h>
 
 namespace android {
 namespace hardware {
@@ -45,7 +45,7 @@ using ::android::OK;
 using ::android::sp;
 using ::android::status_t;
 
-class OppoClientCallback;
+class infinixClientCallback;
 struct BiometricsFingerprint : public IBiometricsFingerprint {
 public:
     BiometricsFingerprint();
@@ -73,9 +73,9 @@ public:
     Return<RequestStatus> getEngineeringInfo(uint32_t type);
 
 private:
-    sp<vendor::oppo::hardware::biometrics::fingerprint::V2_1::IBiometricsFingerprint> mOppoBiometricsFingerprint;
-    sp<OppoClientCallback> mOppoClientCallback;
-    static Return<RequestStatus> OppoToAOSPRequestStatus(vendor::oppo::hardware::biometrics::fingerprint::V2_1::RequestStatus req);
+    sp<vendor::infinix::hardware::biometrics::fingerprint::V2_1::IBiometricsFingerprint> minfinixBiometricsFingerprint;
+    sp<infinixClientCallback> minfinixClientCallback;
+    static Return<RequestStatus> infinixToAOSPRequestStatus(vendor::infinix::hardware::biometrics::fingerprint::V2_1::RequestStatus req);
 };
 
 }  // namespace implementation
