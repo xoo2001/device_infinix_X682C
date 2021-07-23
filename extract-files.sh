@@ -17,8 +17,8 @@
 
 set -e
 
-DEVICE=RMX2185
-VENDOR=realme
+DEVICE=X682C
+VENDOR=infinix
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"

@@ -20,8 +20,8 @@ import os
 import sys
 from hashlib import sha1
 
-device='RMX2185'
-vendor='realme'
+device='X682C'
+vendor='infinix'
 
 with open('proprietary-files.txt', 'r') as f:
     lines = f.read().splitlines()

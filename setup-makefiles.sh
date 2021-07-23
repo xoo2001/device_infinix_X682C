@@ -17,8 +17,8 @@
 
 set -e
 
-DEVICE=RMX2185
-VENDOR=realme
+DEVICE=X682C
+VENDOR=infinix
 INITIAL_COPYRIGHT_YEAR=2020
 
 # Load extract_utils and do some sanity checks

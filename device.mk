@@ -14,22 +14,17 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/realme/RMX2185
+DEVICE_PATH := device/infinix/X682C
 
 # Installs gsi keys into ramdisk, to boot a GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
 # Call proprietary blob setup
-$(call inherit-product, vendor/realme/RMX2185/RMX2185-vendor.mk)
+$(call inherit-product, vendor/infinix/X682C/X682C-vendor.mk)
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
-# Parts
-$(call inherit-product-if-exists, packages/apps/RealmeParts/parts.mk)
-
-# Realme Dirac
-$(call inherit-product-if-exists, packages/apps/RealmeDirac/dirac.mk)
 
 PRODUCT_SHIPPING_API_LEVEL := 29
 
@@ -41,7 +36,7 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_BUILD_SUPER_PARTITION := false
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 1600
+TARGET_SCREEN_HEIGHT := 1640
 TARGET_SCREEN_WIDTH := 720
 
 # Audio
@@ -59,11 +54,11 @@ PRODUCT_PACKAGES += \
     fastbootd
 
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/rootdir/etc/fstab.mt6765:$(TARGET_COPY_OUT_RAMDISK)/fstab.mt6765
+    $(DEVICE_PATH)/rootdir/etc/fstab.mt6768:$(TARGET_COPY_OUT_RAMDISK)/fstab.mt6768
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.RMX2185
+    android.hardware.biometrics.fingerprint@2.1-service.X682C
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.fingerprint.xml \
@@ -86,8 +81,8 @@ PRODUCT_PACKAGES += \
 
 # Init
 PRODUCT_PACKAGES += \
-    init.mt6765.rc \
-    fstab.mt6765 \
+    init.mt6768.rc \
+    fstab.mt6768 \
     perf_profile.sh \
     set_zram.sh
 
@@ -104,7 +99,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.RMX2185
+    android.hardware.light@2.0-service.X682C
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
@@ -118,9 +113,7 @@ PRODUCT_PACKAGES += \
     NotchBarKiller
 
 PRODUCT_PACKAGES += \
-    RMX2180_overlay \
-    RMX2185_overlay \
-    RMX2189_overlay
+    X682C_overlay 
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -133,7 +126,7 @@ PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 # Recovery
 PRODUCT_PACKAGES += \
-    init.recovery.mt6765.rc
+    init.recovery.mt6768.rc
 
 # RcsService
 PRODUCT_PACKAGES += \

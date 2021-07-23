@@ -28,18 +28,18 @@ on init
     # Custom overrides that need to happen right on boot
     # Override vendor fstab
     # We only need it to be overridden before things are mounted
-    mount none /system/etc/fstab.mt6765 /vendor/etc/fstab.mt6765 bind
+    mount none /system/etc/fstab.mt6768 /vendor/etc/fstab.mt6768 bind
 
 on fs
-    mount_all /vendor/etc/fstab.mt6765 --early
-    mount_all /vendor/etc/fstab.mt6765 --late
+    mount_all /vendor/etc/fstab.mt6768 --early
+    mount_all /vendor/etc/fstab.mt6768 --late
 
 on post-fs
     # Unmount the overridden fstab because the SELinux label is incorrect
     # and some MTK daemons can crash because of that
     # (at post-fs, the fstab has already been used to mount the partitions,
     #  so it is fine to just revert back)
-    umount /vendor/etc/fstab.mt6765
+    umount /vendor/etc/fstab.mt6768
 
 on property:sys.boot_completed=1
     # Restrict permissions to socket file 
@@ -73,11 +73,11 @@ on post-fs-data
     chmod 0666 /sys/class/power_supply/usb/otg_switch
 
 	# HBM
-	chown system system /sys/kernel/oppo_display/hbm
-	chmod 0666 /sys/kernel/oppo_display/hbm
+	chown system system /sys/kernel/infinix_display/hbm
+	chmod 0666 /sys/kernel/infinix_display/hbm
 
     # Disable edge limit control interface
-    write /proc/touchpanel/oppo_tp_limit_enable 0
+    write /proc/touchpanel/infinix_tp_limit_enable 0
 
     # Services
     stop console
@@ -118,9 +118,9 @@ on property:sys.boot_completed=1
     write /sys/block/dm-0/queue/read_ahead_kb 128
     write /sys/block/dm-1/queue/read_ahead_kb 128
 
-    setprop vendor.oppo.biometrics.fingerprint.boot_completed 1
+    setprop vendor.infinix.biometrics.fingerprint.boot_completed 1
 
-service oppo_fingerprints_sh /vendor/bin/sh /vendor/bin/init.oppo.fingerprints.sh
+service infinix_fingerprints_sh /vendor/bin/sh /vendor/bin/init.infinix.fingerprints.sh
     class main
     user root
     oneshot

@@ -1,4 +1,4 @@
 hidl_package_root {
-    name: "vendor.oppo.hardware",
-    path: "device/realme/RMX2185/interfaces",
+    name: "vendor.infinix.hardware",
+    path: "device/infinix/X682C/interfaces",
 }
